@@ -1,0 +1,42 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.inputTitle {
+    display: flex;
+}
+
+.inputHeading {
+    font-size: 16px;
+    color: #48557B;
+}
+
+.error {
+    color: red;
+    font-size: 16px !important;
+}
+
+.hint {
+    font-size: 14px !important;
+    color: var(--normal-text);
+}
+
+.inputField {
+    border: 2px solid #A8B4D7;
+    border-radius: 8px;
+    padding: 12px 8px;
+    background-color: transparent;
+    width: 300px;
+    margin-top: -14px;
+    margin-bottom: -8px;
+    color: #48557B;
+}
+
+input:focus {
+    color: #48557B;
+    border: 2px solid #48557B;
+    background-color: transparent;
+    outline: none;
+}

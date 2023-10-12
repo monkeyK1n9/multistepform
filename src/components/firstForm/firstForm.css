@@ -1,0 +1,30 @@
+.firstForm {
+    padding: 16px;
+    color: black;
+    padding: 0.5em 10em;
+}
+
+.stepLevel {
+    font-size: var(--fs-title);
+    color: #A8B4D7;
+}
+
+.heading {
+    line-height: 4px;
+    font-size: var(--fs-header);
+    font-weight: 400;
+    color: #48557B;
+}
+
+.intro {
+    text-align: center;
+    margin-left: 18%;
+    margin-right: 18%;
+    color: #48557B;
+}
+
+.dataForm {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16px;
+}

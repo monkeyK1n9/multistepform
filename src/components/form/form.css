@@ -1,0 +1,106 @@
+.form {
+    width: 60%;
+}
+
+.formInput {
+    background-color: var(--white-background);
+    width: 100%;
+    padding-bottom: 54px;
+    min-height: 500px;
+    border-radius: 16px;
+    box-shadow: 5px 2px 30px 0px rgba(72,85,123,0.81);
+    -webkit-box-shadow: 5px 2px 30px 0px rgba(72,85,123,0.81);
+    -moz-box-shadow: 5px 2px 30px 0px rgba(72,85,123,0.81);
+}
+
+.progressContainer {
+    background-color: rgb(0, 0, 0, 0.05);
+    padding: 32px 32px;
+    position: relative;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.progressLevel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-top-left-radius: 16px;
+    background: rgb(89,163,250);
+    background: linear-gradient(90deg, rgba(89,163,250,0.6153054971988796) 0%, rgba(89,163,250,1) 100%);
+}
+
+.progressTitleContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 16px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fs-title);
+}
+
+.number {
+    padding: 4px 10px;
+    margin-right: 8px;
+    border-radius: 30px;
+    background-clip: padding-box;
+    font-size: 14px
+}
+
+.formAction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.backToLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-background);
+    background-color: transparent;
+    border: none;
+}
+
+.registerAction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previousAction {
+    background-color: transparent;
+    border: 1px solid var(--white-background);
+    color: var(--white-background);
+    padding: 16px 16px;
+    margin-right: 32px;
+    border-radius: 8px;
+}
+
+.nextAction {
+    background-color: #455ED9;
+    border: none;
+    color: var(--white-background);
+    font-weight: var(--fw-subheader);
+    padding: 16px 32px;
+    background: rgb(89,163,250);
+    background: linear-gradient(90deg, rgba(89,163,250,0.6153054971988796) 0%, rgba(89,163,250,1) 100%);
+    border-radius: 8px;
+
+}
+
+.nextAction:hover{
+    background-color: #455ED9;
+}
