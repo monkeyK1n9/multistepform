@@ -1,12 +1,16 @@
 import TextInput from "../textInput/TextInput";
 import "./firstForm.css";
+import { validateEmail, validatePassword, validatePhoneNumber } from "../utils/regex";
 
 type Props = {
     userData: UserData,
-    onChange: (e: any) => void
+    onChange: (e: any) => void,
+    isChecked: boolean,
 }
 
-export default function FirstForm({userData, onChange}: Props) {
+export default function FirstForm({userData, onChange, isChecked = false}: Props) {
+
+
   return (
     <div className="firstForm">
         <h3 className="stepLevel">Step 1</h3>
@@ -20,7 +24,8 @@ export default function FirstForm({userData, onChange}: Props) {
                 value={userData.firstName}
                 onChange={onChange}
                 isObligatory
-                errorMessage="This field is required"
+                errorMessage="Valid field is required"
+                isError={isChecked && (!userData.firstName || userData.firstName.trim().length === 0)}
             />
             <TextInput
                 inputHeading="Last Name"
@@ -29,7 +34,8 @@ export default function FirstForm({userData, onChange}: Props) {
                 value={userData.lastName}
                 onChange={onChange}
                 isObligatory
-                errorMessage="This field is required"
+                errorMessage="Valid field is required"
+                isError={isChecked && (!userData.lastName || userData.lastName.trim().length === 0)}
             />
             <TextInput
                 inputHeading="Email"
@@ -39,7 +45,8 @@ export default function FirstForm({userData, onChange}: Props) {
                 value={userData.email}
                 onChange={onChange}
                 isObligatory
-                errorMessage="This field is required"
+                errorMessage="Valid field is required"
+                isError={isChecked && (!userData.email || !validateEmail(userData.email))}
             />
             <TextInput
                 inputHeading="Phone Number"
@@ -48,7 +55,8 @@ export default function FirstForm({userData, onChange}: Props) {
                 value={userData.phoneNumber}
                 onChange={onChange}
                 isObligatory
-                errorMessage="This field is required"
+                errorMessage="Valid field is required (+000) 000 000 000"
+                isError={isChecked && (!userData.phoneNumber || !validatePhoneNumber(userData.phoneNumber))}
             />
             <TextInput
                 inputHeading="Password"
@@ -58,7 +66,8 @@ export default function FirstForm({userData, onChange}: Props) {
                 value={userData.password}
                 onChange={onChange}
                 isObligatory
-                errorMessage="This field is required"
+                errorMessage="The password is at least 8 characters long, has at least one uppercase letter, at least one lowercase letter, at least one digit and at least one special character"
+                isError={isChecked && (!userData.password || !validatePassword(userData.password))}
             />
             <TextInput
                 inputHeading="Confirm Password"
@@ -68,7 +77,8 @@ export default function FirstForm({userData, onChange}: Props) {
                 value={userData.confirmPassword}
                 onChange={onChange}
                 isObligatory
-                errorMessage="This field is required"
+                errorMessage="Required. Must be the same as the password"
+                isError={isChecked && (!userData.confirmPassword || userData.password !== userData.confirmPassword)}
             />
         </div>
     </div>

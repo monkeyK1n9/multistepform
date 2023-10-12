@@ -37,7 +37,7 @@ export function useSelectForm (steps: ReactElement[]) {
             isLastStep: currentStepIndex == steps.length - 1,
             next,
             previous,
-            goTo
+            goTo,
         }
     )
 }

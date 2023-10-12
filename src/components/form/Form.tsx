@@ -5,6 +5,7 @@ import FirstForm from "../firstForm/FirstForm"
 import SecondForm from "../secondForm/SecondForm"
 import ThirdForm from "../thirdForm/ThirdForm"
 import { useState } from "react"
+import { validateEmail, validatePassword, validatePhoneNumber } from "../utils/regex"
 
 const INITIAL_USER_DATA: UserData = {
     firstName: "",
@@ -23,12 +24,42 @@ const INITIAL_USER_DATA: UserData = {
 
 export default function Form() {
     const [userData, setUserData] = useState<UserData>(INITIAL_USER_DATA)
+    const [isChecked, setIsChecked] = useState<boolean>(false)
+    const [isInvalid, setIsInvalid] = useState<boolean>(false)
 
     const onChange = (e: any) => {
+        setIsInvalid(false)
         setUserData(prev => ({
             ...prev,
             [e.target.name]: e.target.value
         }))
+    }
+
+    const nextAction = () => {
+        setIsChecked(true)
+
+        let check : boolean = false;
+        
+        if (currentStepIndex == 0) {
+            if (
+                !validateEmail(userData.email) ||
+                !validatePhoneNumber(userData.phoneNumber) ||
+                !validatePassword(userData.password)
+            ) {
+                check = true;
+            }
+        }
+
+        setIsInvalid(check)
+
+        if (!check) {
+            next();
+        }
+    }
+
+    const previousAction = () => {
+        setIsChecked(false)
+        previous();
     }
 
     const {
@@ -40,14 +71,25 @@ export default function Form() {
         next,
         previous,
     } = useSelectForm([
-        <FirstForm onChange={onChange} userData={userData} />,
-        <SecondForm onChange={onChange} userData={userData} />,
+        <FirstForm 
+            onChange={onChange} 
+            userData={userData} 
+            isChecked={isChecked}
+        />,
+        <SecondForm 
+            onChange={onChange} 
+            userData={userData} 
+            isChecked={isChecked}
+        />,
         <ThirdForm />
     ])
 
     const handleSubmit = () => {
-        next();
-        console.log(userData);
+        setIsChecked(true);
+        if (!isInvalid) {
+            next();
+            console.log(userData);
+        }
     }
 
   return (
@@ -88,12 +130,12 @@ export default function Form() {
                 
                 <div className="registerAction">
                     {!isFirstStep && (
-                        <button className="previousAction" type="button" onClick={previous}>
+                        <button className="previousAction" type="button" onClick={previousAction}>
                             Previous Step
                         </button>
                     )}
 
-                    <button className="nextAction" type="button" onClick={currentStepIndex == 1 ? handleSubmit : next}>
+                    <button className="nextAction" type="button" onClick={currentStepIndex == 1 ? handleSubmit : nextAction}>
                         {currentStepIndex == 1 ? "Submit" : "Next Step"}
                     </button>
                 </div>

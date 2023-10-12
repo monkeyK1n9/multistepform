@@ -46,7 +46,7 @@ export default function TextInput(
             className="inputField"
             type={type}
         />
-        {isObligatory && isError && <p className="error">{errorMessage}</p>}
+        {isObligatory && isError && <p className="error" style={{fontSize: 12, textAlign: 'left', width: 300}}>{errorMessage}</p>}
     </div>
   )
 }

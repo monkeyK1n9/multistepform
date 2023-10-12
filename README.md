@@ -1,3 +1,7 @@
+# Multistep Registration Form
+# Table of Contents
+- [Multistep Registration Form](#multistep-registration-form)
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
   - [Getting Started](#getting-started)
     - [Install the dependencies](#install-the-dependencies)
@@ -6,7 +10,8 @@
   - [Contribution](#contribution)
 
 
-> *Note*: This project is build for a job interview, but you can use it however you want
+> *Note*: This is just a frontend project. You can customize the form as you need.
+>
 > You can also give me a star if you find it useful.  
 
 # Introduction
