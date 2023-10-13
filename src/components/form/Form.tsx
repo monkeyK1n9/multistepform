@@ -132,7 +132,7 @@ export default function Form() {
             </div>
             {step}
         </div>
-        {/* {!isLastStep && ( */}
+        {!isLastStep && (
             <div className="formAction">
                 <button
                     type="button"
@@ -155,7 +155,7 @@ export default function Form() {
                 </div>
                 
             </div>
-        {/* )} */}
+        )}
     </div>
   )
 }

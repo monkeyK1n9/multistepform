@@ -17,6 +17,10 @@
 # Introduction
 This project was inspired by the design of [Ivan Poddubchenko](https://dribbble.com/shots/6792188-Registration-Form). It is a multistep registration form build with [Vite-React](https://vitejs.dev/guide/).
 
+| Step 1 | Step 2 |
+|--------|-------|
+| ![step1](src/assets/screen1.png) | ![step2](src/assets/screen2.png) |
+
 ## Getting Started
 To get started, clone or fork the repo. You will need to have npm or yarn.
 

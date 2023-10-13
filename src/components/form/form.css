@@ -93,6 +93,7 @@
     align-items: center;
     justify-content: center;
     min-width: 200px;
+    outline: none;
 }
 
 .nextAction {
@@ -109,6 +110,7 @@
     align-items: center;
     justify-content: center;
     min-width: 200px;
+    outline: none;
 }
 
 .nextAction:hover{
