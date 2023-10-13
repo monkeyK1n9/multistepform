@@ -26,10 +26,8 @@ export default function Form() {
     const [userData, setUserData] = useState<UserData>(INITIAL_USER_DATA)
     const [isCheckedOne, setIsCheckedOne] = useState<boolean>(false)
     const [isCheckedTwo, setIsCheckedTwo] = useState<boolean>(false)
-    const [isInvalid, setIsInvalid] = useState<boolean>(false)
 
     const onChange = (e: any) => {
-        setIsInvalid(false)
         setUserData(prev => ({
             ...prev,
             [e.target.name]: e.target.value
@@ -63,8 +61,6 @@ export default function Form() {
             })
         }
         
-        setIsInvalid(check)
-
         if (!check) {
             next();
             if (currentStepIndex == 1) console.log(userData)
@@ -98,13 +94,6 @@ export default function Form() {
         />,
         <ThirdForm />
     ])
-
-    const handleSubmit = () => {
-        if (!isInvalid) {
-            nextAction();
-            console.log(userData);
-        }
-    }
 
   return (
     <div className="form">
