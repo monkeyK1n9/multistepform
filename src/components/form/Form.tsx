@@ -1,5 +1,5 @@
 import "./form.css"
-import { FaAngleLeft } from "react-icons/fa"
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { useSelectForm } from "../../hooks/useSelectForm"
 import FirstForm from "../firstForm/FirstForm"
 import SecondForm from "../secondForm/SecondForm"
@@ -24,7 +24,8 @@ const INITIAL_USER_DATA: UserData = {
 
 export default function Form() {
     const [userData, setUserData] = useState<UserData>(INITIAL_USER_DATA)
-    const [isChecked, setIsChecked] = useState<boolean>(false)
+    const [isCheckedOne, setIsCheckedOne] = useState<boolean>(false)
+    const [isCheckedTwo, setIsCheckedTwo] = useState<boolean>(false)
     const [isInvalid, setIsInvalid] = useState<boolean>(false)
 
     const onChange = (e: any) => {
@@ -36,11 +37,12 @@ export default function Form() {
     }
 
     const nextAction = () => {
-        setIsChecked(true)
-
+        
         let check : boolean = false;
         
         if (currentStepIndex == 0) {
+            setIsCheckedOne(true);
+            setIsCheckedTwo(false)
             if (
                 !validateEmail(userData.email) ||
                 !validatePhoneNumber(userData.phoneNumber) ||
@@ -49,16 +51,29 @@ export default function Form() {
                 check = true;
             }
         }
+            
+        if (currentStepIndex == 1) {
+            setIsCheckedOne(false)
+            setIsCheckedTwo(true)
 
+            Object.values(userData).forEach(val => {
+                if (!val || val.trim().length === 0) {
+                    check = true;
+                }
+            })
+        }
+        
         setIsInvalid(check)
 
         if (!check) {
             next();
+            if (currentStepIndex == 1) console.log(userData)
         }
     }
 
     const previousAction = () => {
-        setIsChecked(false)
+        setIsCheckedOne(false)
+        setIsCheckedTwo(false)
         previous();
     }
 
@@ -74,20 +89,19 @@ export default function Form() {
         <FirstForm 
             onChange={onChange} 
             userData={userData} 
-            isChecked={isChecked}
+            isChecked={isCheckedOne}
         />,
         <SecondForm 
             onChange={onChange} 
             userData={userData} 
-            isChecked={isChecked}
+            isChecked={isCheckedTwo}
         />,
         <ThirdForm />
     ])
 
     const handleSubmit = () => {
-        setIsChecked(true);
         if (!isInvalid) {
-            next();
+            nextAction();
             console.log(userData);
         }
     }
@@ -118,30 +132,30 @@ export default function Form() {
             </div>
             {step}
         </div>
-        {!isLastStep && (
+        {/* {!isLastStep && ( */}
             <div className="formAction">
                 <button
                     type="button"
                     className="backToLogin"
                 >
-                    <FaAngleLeft /> Back to login
+                    <FaAngleLeft className="arrow"/> Back to login
                 </button>
 
                 
                 <div className="registerAction">
                     {!isFirstStep && (
                         <button className="previousAction" type="button" onClick={previousAction}>
-                            Previous Step
+                            <FaAngleLeft className="arrow" /> Previous Step
                         </button>
                     )}
 
-                    <button className="nextAction" type="button" onClick={currentStepIndex == 1 ? handleSubmit : nextAction}>
-                        {currentStepIndex == 1 ? "Submit" : "Next Step"}
+                    <button className="nextAction" type="button" onClick={nextAction}>
+                        {currentStepIndex == 1 ? "Submit" : "Next Step"} <FaAngleRight className="arrow" /> 
                     </button>
                 </div>
                 
             </div>
-        )}
+        {/* )} */}
     </div>
   )
 }

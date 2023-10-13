@@ -1,0 +1,59 @@
+.selectInput {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1
+}
+
+.selectTitle {
+    display: flex;
+    flex-direction: row;
+}
+
+.selectHeading {
+    font-size: 16px;
+    color: #48557B;
+}
+
+.error {
+    color: red;
+    margin-bottom: -8px;
+}
+
+sup {
+    font-size: 16px !important;
+}
+
+.hint {
+    font-size: 14px !important;
+    color: var(--normal-text);
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    position: relative;
+}
+
+.toggleHint {
+    display: none;
+}
+
+.hintIcon:hover + .toggleHint {
+    display: flex;
+}
+
+.selectField {
+    border: 2px solid #A8B4D7;
+    border-radius: 8px;
+    padding: 12px 8px;
+    background-color: transparent;
+    width: 320px;
+    margin-top: -14px;
+    margin-bottom: -8px;
+    color: #48557B;
+}
+
+.selectField:focus {
+    color: #48557B;
+    border: 2px solid #48557B;
+    background-color: transparent;
+    outline: none;
+}

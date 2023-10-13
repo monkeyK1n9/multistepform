@@ -1,0 +1,38 @@
+.brandHint {
+    background-color: var(--normal-text);
+    color: var(--white-background);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 16px;
+    width: 400px;
+    min-height: 150px
+}
+
+.spike {
+    width: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.spikeUp {
+    height: 75px;
+    width: 8px;
+    border-bottom-right-radius: 32px;
+    background-color: var(--white-background);
+}
+
+.spikeDown {
+    height: 75px;
+    width: 8px;
+    border-top-right-radius: 32px;
+    background-color: var(--white-background);
+}
+
+.hintText {
+    color: var(--white-background);
+    text-align: left;
+    padding: 0 16px 0 16px;
+}

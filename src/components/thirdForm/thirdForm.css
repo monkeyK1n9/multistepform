@@ -1,0 +1,13 @@
+.thirdForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+}
+
+.text {
+    color: #48557B;
+    font-size: var(--fs-header);
+    font-weight: 600;
+    width: 55%;
+}

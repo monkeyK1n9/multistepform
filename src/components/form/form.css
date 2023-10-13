@@ -63,6 +63,7 @@
     align-items: center;
     width: 100%;
     margin-top: 16px;
+    margin-bottom: 54px;
 }
 
 .backToLogin {
@@ -86,7 +87,12 @@
     color: var(--white-background);
     padding: 16px 16px;
     margin-right: 32px;
-    border-radius: 8px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
 }
 
 .nextAction {
@@ -97,10 +103,18 @@
     padding: 16px 32px;
     background: rgb(89,163,250);
     background: linear-gradient(90deg, rgba(89,163,250,0.6153054971988796) 0%, rgba(89,163,250,1) 100%);
-    border-radius: 8px;
-
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
 }
 
 .nextAction:hover{
     background-color: #455ED9;
+}
+
+.arrow {
+    font-size: 20px !important;
 }
